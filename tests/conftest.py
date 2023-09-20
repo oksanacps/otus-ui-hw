@@ -1,10 +1,8 @@
-import pytest
-import os
-
 from selenium import webdriver as webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
-from pages.pages import Header
+from selenium.webdriver.common.by import By
 
+from pages.pages import HomePage
 
 import pytest
 
@@ -46,16 +44,20 @@ def driver(request):
 
 
 @pytest.fixture()
-def logout(driver, base_url):
+def clear_cart(driver, base_url):
     browser = driver
     browser.get(base_url)
-    browser.find_element(*Header.CARET).click()
-    logout_button = browser.find_elements(*Header.LOGOUT_BUTTON)
-    if len(logout_button) > 0:
-        logout_button.click()
+
+    browser.find_element(*HomePage.CART).click()
+    product_number = len(browser.find_elements(*HomePage.PRODUCTS_IN_CART))
+    if product_number > 0:
+        for product in range(product_number):
+            browser.find_element(By.CSS_SELECTOR, '[title="Remove"]')
 
     yield
 
-    browser.find_element(*Header.CARET).click()
-    browser.find_element(*Header.LOGOUT_BUTTON).click()
-
+    browser.find_element(*HomePage.CART).click()
+    product_number = len(browser.find_elements(*HomePage.PRODUCTS_IN_CART))
+    if product_number > 0:
+        for product in range(product_number):
+            browser.find_element(By.CSS_SELECTOR, '[title="Remove"]')

@@ -10,7 +10,7 @@ def test_find_search_field(driver, base_url):
 def test_find_shopping_cart_on_mac(driver, base_url):
     browser = driver
     browser.get(base_url + '/desktops/mac')
-    assert browser.find_element(*MacPage.SHOPPING_CART_MAC)  #by.css
+    assert browser.find_element(*MacPage.SHOPPING_CART_MAC)
 
 
 def test_find_all_categories_on_menu(driver, base_url):
