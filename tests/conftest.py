@@ -2,7 +2,9 @@ from selenium import webdriver as webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 
-from pages.pages import HomePage
+# from pages.pages import HomePage
+from page_objects.home_page import HomePage
+
 
 import pytest
 
@@ -45,19 +47,19 @@ def driver(request):
 
 @pytest.fixture()
 def clear_cart(driver, base_url):
-    browser = driver
-    browser.get(base_url)
+    home_page = HomePage(driver)
+    home_page.open(base_url)
 
-    browser.find_element(*HomePage.CART).click()
-    product_number = len(browser.find_elements(*HomePage.PRODUCTS_IN_CART))
+    home_page.click_cart()
+    product_number = home_page.number_of_products_in_cart()
     if product_number > 0:
         for product in range(product_number):
-            browser.find_element(By.CSS_SELECTOR, '[title="Remove"]')
+            driver.find_element(By.CSS_SELECTOR, '[title="Remove"]')   ### Поменять
 
     yield
 
-    browser.find_element(*HomePage.CART).click()
-    product_number = len(browser.find_elements(*HomePage.PRODUCTS_IN_CART))
+    home_page.click_cart()
+    product_number = home_page.number_of_products_in_cart()
     if product_number > 0:
         for product in range(product_number):
-            browser.find_element(By.CSS_SELECTOR, '[title="Remove"]')
+            driver.find_element(By.CSS_SELECTOR, '[title="Remove"]')   ### Поменять

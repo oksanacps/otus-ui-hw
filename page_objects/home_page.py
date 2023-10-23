@@ -19,26 +19,39 @@ class HomePage(BasePage):
         self.driver.find_element(By.ID, 'cart')
         return True
 
+    def click_cart(self):
+        self.driver.find_element(By.ID, 'cart').click()
+
     def number_of_products(self):
         return len(self.driver.find_elements(By.CSS_SELECTOR, '.row > div > [class="product-thumb transition"]'))
 
-    def cart_button_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '.button-group > [type="button"] > [class="fa fa-shopping-cart"]')
+    def click_cart_button(self):
+        self.driver.find_element(By.CSS_SELECTOR, '.button-group > [type="button"] > [class="fa fa-shopping-cart"]').click()
 
-    def products_in_cart_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '[class="table table-striped"] > tbody > tr')
+    def number_of_products_in_cart(self):
+        return len(self.driver.find_elements(By.CSS_SELECTOR, '[class="table table-striped"] > tbody > tr'))
 
-    def currency_drop_down_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '[class="fa fa-caret-down"]')
+    def click_currency_drop_down(self):
+        self.driver.find_element(By.CSS_SELECTOR, '[class="fa fa-caret-down"]').click()
 
-    def euro_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '[name="EUR"]')
+    # def euro_is_visible(self):
+    #     self.driver.find_element(By.CSS_SELECTOR, '[name="EUR"]')
+    #
+    # def pound_is_visible(self):
+    #     self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]')
+    #
+    # def usd_is_visible(self):
+    #     self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]')
+    #
+    def get_price(self):
+        return self.driver.find_element(By.CSS_SELECTOR, '.price-new').text()
 
-    def pound_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]')
+    def click_on_currency_icon(self, currency):
+        if currency == 'EURO':
+            self.driver.find_element(By.CSS_SELECTOR, '[name="EUR"]').click()
+        elif currency == 'POUND':
+            self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]').click()
+        elif currency == 'USD':
+            self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]').click()
 
-    def usd_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]')
 
-    def price_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '.price-new')
