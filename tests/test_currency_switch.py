@@ -13,14 +13,14 @@ def test_currency_home_page(driver, base_url, currency, expected_icon):
     home_page.open(base_url)
 
     home_page.click_currency_drop_down()
-    home_page.click_on_currency_icon()
+    home_page.click_on_currency_icon(currency)
 
     assert expected_icon in home_page.get_price()
 
 
-@pytest.mark.parametrize('currency, expected_icon', [('EURO', '€'.encode("utf-8")),
-                                                     ('POUND', '£'.encode("utf-8")),
-                                                     ('USD', '$'.encode("utf-8"))    # почему тут ошибка кодировки?
+@pytest.mark.parametrize('currency, expected_icon', [('EURO', '€'),
+                                                     ('POUND', '£'),
+                                                     ('USD', '$')
                                                      ])
 def test_currency_catalog_page(driver, base_url, currency, expected_icon):
     catalog_page = CatalogPage(driver)

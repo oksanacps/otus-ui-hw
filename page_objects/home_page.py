@@ -44,7 +44,7 @@ class HomePage(BasePage):
     #     self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]')
     #
     def get_price(self):
-        return self.driver.find_element(By.CSS_SELECTOR, '.price-new').text()
+        return self.driver.find_element(By.CSS_SELECTOR, '.price-new').text
 
     def click_on_currency_icon(self, currency):
         if currency == 'EURO':
@@ -52,6 +52,6 @@ class HomePage(BasePage):
         elif currency == 'POUND':
             self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]').click()
         elif currency == 'USD':
-            self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]').click()
+            self.driver.find_element(By.CSS_SELECTOR, '[name="USD"]').click()
 
 
