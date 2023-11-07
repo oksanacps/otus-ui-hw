@@ -1,8 +1,10 @@
+import random
+import string
+
 from selenium import webdriver as webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 
-# from pages.pages import HomePage
 from page_objects.home_page import HomePage
 
 
@@ -63,3 +65,11 @@ def clear_cart(driver, base_url):
     if product_number > 0:
         for product in range(product_number):
             driver.find_element(By.CSS_SELECTOR, '[title="Remove"]')   ### Поменять
+
+
+@pytest.fixture()
+def random_email():
+   random_email = ''
+   for x in range(10):
+       random_email+=''.join(random.choice(string.ascii_lowercase))
+   yield random_email + "@gmail.com"

@@ -34,15 +34,6 @@ class HomePage(BasePage):
     def click_currency_drop_down(self):
         self.driver.find_element(By.CSS_SELECTOR, '[class="fa fa-caret-down"]').click()
 
-    # def euro_is_visible(self):
-    #     self.driver.find_element(By.CSS_SELECTOR, '[name="EUR"]')
-    #
-    # def pound_is_visible(self):
-    #     self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]')
-    #
-    # def usd_is_visible(self):
-    #     self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]')
-    #
     def get_price(self):
         return self.driver.find_element(By.CSS_SELECTOR, '.price-new').text
 
