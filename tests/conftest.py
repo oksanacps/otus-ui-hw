@@ -1,14 +1,18 @@
 import random
 import string
+import pytest
 
 from selenium import webdriver as webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 
 from page_objects.home_page import HomePage
+from page_objects.login_admin_page import LoginAdminPage
 
 
-import pytest
+
+
+
 
 
 def pytest_addoption(parser):
@@ -73,3 +77,14 @@ def random_email():
    for x in range(10):
        random_email+=''.join(random.choice(string.ascii_lowercase))
    yield random_email + "@gmail.com"
+
+
+# @pytest.fixture()
+# def login_admin_page(driver):
+#     login_admin_page = LoginAdminPage(driver)
+#
+#     login_admin_page.open(base_url, '/admin')
+#     login_admin_page.login_with_admin_creads(login='user', password='bitnami')
+#
+#     yield driver.current_url
+
