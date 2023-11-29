@@ -6,8 +6,8 @@ class AdminPage(BasePage):
     PATH = ''
 
     def open_products_list(self):
-        self.driver.find_element(By.CSS_SELECTOR, '[class="parent"]').click()
-        self.driver.find_element(By.CSS_SELECTOR, '.collapse > .active').click()
+        self.driver.find_element(By.CSS_SELECTOR, '[class="parent collapsed"]').click()
+        self.driver.find_element(By.CSS_SELECTOR, '#menu-catalog > .collapse > .active').click()
 
     def open_add_product_form(self):
         self.driver.find_element(By.CSS_SELECTOR, '[data-original-title="Add New"]').click()
@@ -31,3 +31,9 @@ class AdminPage(BasePage):
                                          'tbody > tr:nth-child(' + str(number) + ') > td:nth-child(4)').text
 
         return product_name, model
+
+    def select_product_in_list(self):
+        self.driver.find_element(By.NAME, 'selected[]').click()
+
+    def delete_product(self):
+        self.driver.find_element(By.CSS_SELECTOR, '[data-original-title = "Delete"]').click()

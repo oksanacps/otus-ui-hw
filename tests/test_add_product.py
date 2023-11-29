@@ -5,7 +5,7 @@ from page_objects.login_admin_page import LoginAdminPage
 from page_objects.admin_home_page import AdminHomePage
 
 
-def test_login_form(driver, base_url):
+def test_add_product(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
 
     login_admin_page.open(base_url, '/admin')
