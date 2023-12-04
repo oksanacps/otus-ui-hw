@@ -26,7 +26,8 @@ class HomePage(BasePage):
         return len(self.driver.find_elements(By.CSS_SELECTOR, '.row > div > [class="product-thumb transition"]'))
 
     def click_cart_button(self):
-        self.driver.find_element(By.CSS_SELECTOR, '.button-group > [type="button"] > [class="fa fa-shopping-cart"]').click()
+        self.driver.find_element(By.CSS_SELECTOR,
+                                 '.button-group > [type="button"] > [class="fa fa-shopping-cart"]').click()
 
     def number_of_products_in_cart(self):
         return len(self.driver.find_elements(By.CSS_SELECTOR, '[class="table table-striped"] > tbody > tr'))
@@ -44,5 +45,3 @@ class HomePage(BasePage):
             self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]').click()
         elif currency == 'USD':
             self.driver.find_element(By.CSS_SELECTOR, '[name="USD"]').click()
-
-

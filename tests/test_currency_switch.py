@@ -17,8 +17,6 @@ def test_currency_home_page(driver, base_url, currency, expected_icon):
 
     assert expected_icon in home_page.get_price()
 
-    # передать заголовок в page element в header
-
 
 @pytest.mark.parametrize('currency, expected_icon', [('EURO', '€'),
                                                      ('POUND', '£'),

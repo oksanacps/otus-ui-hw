@@ -26,6 +26,3 @@ def test_login_logout(driver, base_url):
     admin_home_page.click_logout_button()
 
     assert login_admin_page.login_button_is_visible()
-
-
-

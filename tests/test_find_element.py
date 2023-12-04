@@ -10,11 +10,10 @@ def test_find_search_field(driver, base_url):
     assert home_page.search_field_is_visible()
 
 
-
 def test_find_shopping_cart_on_mac(driver, base_url):
     mac_page = MacPage(driver)
     mac_page.open(base_url, '/desktops/mac')
-    assert  mac_page.shoping_cart_mac_is_visible()
+    assert mac_page.shoping_cart_mac_is_visible()
 
 
 def test_find_all_categories_on_menu(driver, base_url):

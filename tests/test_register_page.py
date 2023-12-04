@@ -1,5 +1,3 @@
-import time
-
 from page_objects.register_page import RegisterPage
 from page_objects.account_success_page import AccountSuccessPage
 
@@ -36,7 +34,3 @@ def test_register_new_client(driver, base_url, random_email):
 
     assert account_success_page.success_header_is_visible()
     assert account_success_page.get_header_text() == 'Your Account Has Been Created!'
-
-
-
-

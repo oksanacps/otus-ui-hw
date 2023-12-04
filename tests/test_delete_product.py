@@ -18,7 +18,3 @@ def test_delete_product(driver, base_url):
     product_nubmer_after_test = admin_page.number_of_product()
 
     assert product_nubmer_before_test - product_nubmer_after_test == 1
-
-
-
-

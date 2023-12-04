@@ -11,5 +11,3 @@ class AccountSuccessPage(BasePage):
 
     def get_header_text(self):
         return self.driver.find_element(By.CSS_SELECTOR, '.col-sm-9 > h1').text
-
-

@@ -37,5 +37,3 @@ class LoginAdminPage(BasePage):
         self.driver.find_element(By.CSS_SELECTOR, '.input-group > [type="text"]').send_keys(login)
         self.driver.find_element(By.CSS_SELECTOR, '.input-group > [type="password"]').send_keys(password)
         self.driver.find_element(By.CSS_SELECTOR, '.text-right > [type="submit"]').click()
-
-

@@ -26,5 +26,3 @@ class CatalogPage(BasePage):
 
     def get_price(self):
         return self.driver.find_element(By.CSS_SELECTOR, '.price').text
-
-

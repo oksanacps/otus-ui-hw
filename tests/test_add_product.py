@@ -2,7 +2,6 @@ import random
 
 from page_objects.admin_page import AdminPage
 from page_objects.login_admin_page import LoginAdminPage
-from page_objects.admin_home_page import AdminHomePage
 
 
 def test_add_product(driver, base_url):
