@@ -1,27 +1,28 @@
-from pages.pages import LoginAdminPage, AdminHomePage
+from page_objects.login_admin_page import LoginAdminPage
+from page_objects.admin_home_page import AdminHomePage
 
 
 def test_login_form(driver, base_url):
-    browser = driver
-    browser.get(base_url + '/admin')
+    login_admin_page = LoginAdminPage(driver)
+    login_admin_page.open(base_url, '/admin')
 
-    assert browser.find_element(*LoginAdminPage.TITLE)
-    assert browser.find_element(*LoginAdminPage.USERNAME_TITLE)
-    assert browser.find_element(*LoginAdminPage.USERNAME_FIELD)
-    assert browser.find_element(*LoginAdminPage.PASSWORD_TITLE)
-    assert browser.find_element(*LoginAdminPage.PASSWORD_FIELD)
-    assert browser.find_element(*LoginAdminPage.LOGIN_BUTTON)
+    assert login_admin_page.title_is_visible()
+    assert login_admin_page.username_title_is_visible()
+    assert login_admin_page.username_field_is_visible()
+    assert login_admin_page.password_title_is_visible()
+    assert login_admin_page.password_field_is_visible()
+    assert login_admin_page.login_button_is_visible()
 
 
 def test_login_logout(driver, base_url):
-    browser = driver
-    browser.get(base_url + '/admin')
-    browser.find_element(*LoginAdminPage.USERNAME_FIELD).send_keys('user')
-    browser.find_element(*LoginAdminPage.PASSWORD_FIELD).send_keys('bitnami')
-    browser.find_element(*LoginAdminPage.LOGIN_BUTTON).click()
+    login_admin_page = LoginAdminPage(driver)
+    admin_home_page = AdminHomePage(driver)
 
-    assert browser.find_element(*AdminHomePage.USER_PROFILE)
+    login_admin_page.open(base_url, '/admin')
+    login_admin_page.login_with_admin_creads(login='user', password='bitnami')
 
-    browser.find_element(*AdminHomePage.LOGOUT_BUTTON).click()
+    assert admin_home_page.user_profile_is_visible()
 
-    assert browser.find_element(*LoginAdminPage.LOGIN_BUTTON)
+    admin_home_page.click_logout_button()
+
+    assert login_admin_page.login_button_is_visible()

@@ -1,12 +1,13 @@
-from pages.pages import HomePage
+from page_objects.home_page import HomePage
 
 
 def test_home_page(driver, base_url):
-    browser = driver
-    browser.get(base_url)
+    home_page = HomePage(driver)
+    home_page.open(base_url)
 
-    assert browser.find_element(*HomePage.LOGO)
-    assert browser.find_element(*HomePage.SEARCH_FIELD)
-    assert browser.find_element(*HomePage.CART)
-    assert len(browser.find_elements(*HomePage.CATEGORIES)) > 0
-    assert len(browser.find_elements(*HomePage.PRODUCTS)) > 0
+    assert home_page.logo_is_visible()
+    assert home_page.search_field_is_visible()
+    assert home_page.cart_is_visible()
+
+    assert home_page.number_of_categories() > 0
+    assert home_page.number_of_products() > 0
