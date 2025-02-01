@@ -54,15 +54,14 @@ def clear_cart(driver, base_url):
     product_number = home_page.number_of_products_in_cart()
     if product_number > 0:
         for product in range(product_number):
-            driver.find_element(By.CSS_SELECTOR, '[title="Remove"]')
+            driver.find_element(By.XPATH, '//*[@id="header-cart"]/div/ul/li/table/tbody/tr/td[5]/form/button')
 
     yield
 
-    home_page.click_cart()
     product_number = home_page.number_of_products_in_cart()
     if product_number > 0:
         for product in range(product_number):
-            driver.find_element(By.CSS_SELECTOR, '[title="Remove"]')
+            driver.find_element(By.XPATH, '//*[@id="header-cart"]/div/ul/li/table/tbody/tr/td[5]/form/button')
 
 
 @pytest.fixture()

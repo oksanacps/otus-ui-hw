@@ -1,6 +1,7 @@
 from page_objects.base_page import BasePage
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class HomePage(BasePage):
 
@@ -20,17 +21,26 @@ class HomePage(BasePage):
         return True
 
     def click_cart(self):
-        self.driver.find_element(By.ID, 'cart').click()
+        cart = self.driver.find_element(By.CSS_SELECTOR, '#header-cart > div > button')
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", cart)
+        cart.click()
 
     def number_of_products(self):
         return len(self.driver.find_elements(By.CSS_SELECTOR, '.row > div > [class="product-thumb transition"]'))
 
     def click_cart_button(self):
-        self.driver.find_element(By.CSS_SELECTOR,
-                                 '.button-group > [type="button"] > [class="fa fa-shopping-cart"]').click()
+        cart_button = self.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"][formaction="http://192.168.0.109:8081/en-gb?route=checkout/cart.add"]')
+        self.driver.execute_script("arguments[0].click();", cart_button)
 
     def number_of_products_in_cart(self):
-        return len(self.driver.find_elements(By.CSS_SELECTOR, '[class="table table-striped"] > tbody > tr'))
+        if len(self.driver.find_elements(By.CSS_SELECTOR, 'li.text-center.p-4')) == 1:
+            return 0
+        else:
+            number_of_products_in_cart = WebDriverWait(self.driver, 5).until(
+            EC.visibility_of_all_elements_located((
+                By.XPATH, '//*[@id="header-cart"]/div/ul/li/table/tbody/tr'
+            )))
+            return len(number_of_products_in_cart)
 
     def click_currency_drop_down(self):
         self.driver.find_element(By.CSS_SELECTOR, '[class="fa fa-caret-down"]').click()
@@ -45,3 +55,9 @@ class HomePage(BasePage):
             self.driver.find_element(By.CSS_SELECTOR, '[name="GBP"]').click()
         elif currency == 'USD':
             self.driver.find_element(By.CSS_SELECTOR, '[name="USD"]').click()
+
+    def close_alert(self):
+        WebDriverWait(self.driver, 5).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'div.alert.alert-success.alert-dismissible')))
+        close_alert = self.driver.find_element(By.CSS_SELECTOR, 'button.btn-close[data-bs-dismiss="alert"]')
+        close_alert.click()
