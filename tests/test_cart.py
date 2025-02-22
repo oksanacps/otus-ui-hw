@@ -1,6 +1,8 @@
+import pytest
+
 from page_objects.home_page import HomePage
 
-
+@pytest.mark.nondestructive
 def test_add_product_to_cart(driver, base_url, clear_cart):
     home_page = HomePage(driver)
     home_page.open(base_url)

@@ -1,7 +1,9 @@
+import pytest
+
 from page_objects.admin_page import AdminPage
 from page_objects.login_admin_page import LoginAdminPage
 
-
+@pytest.mark.nondestructive
 def test_delete_product(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
 

@@ -19,7 +19,7 @@ def pytest_addoption(parser):
     parser.addoption("--base_url", help="base_url")
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def base_url(request):
     return request.config.getoption("--base_url")
 

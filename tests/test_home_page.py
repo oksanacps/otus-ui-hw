@@ -1,6 +1,8 @@
+import pytest
+
 from page_objects.home_page import HomePage
 
-
+@pytest.mark.nondestructive
 def test_home_page(driver, base_url):
     home_page = HomePage(driver)
     home_page.open(base_url)

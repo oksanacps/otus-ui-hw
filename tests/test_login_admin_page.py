@@ -1,7 +1,11 @@
+import pytest
+
 from page_objects.login_admin_page import LoginAdminPage
 from page_objects.admin_home_page import AdminHomePage
 
 
+@pytest.mark.nondestructive
+@pytest.mark.test
 def test_login_form(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
     login_admin_page.open(base_url, "/administration")
@@ -14,6 +18,7 @@ def test_login_form(driver, base_url):
     assert login_admin_page.login_button_is_visible()
 
 
+@pytest.mark.nondestructive
 def test_login_logout(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
     admin_home_page = AdminHomePage(driver)

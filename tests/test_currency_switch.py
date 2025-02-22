@@ -3,7 +3,7 @@ import pytest
 from page_objects.home_page import HomePage
 from page_objects.catalog_page import CatalogPage
 
-
+@pytest.mark.nondestructive
 @pytest.mark.parametrize(
     "currency, expected_icon", [("EURO", "€"), ("POUND", "£"), ("USD", "$")]
 )
@@ -16,7 +16,7 @@ def test_currency_home_page(driver, base_url, currency, expected_icon):
 
     assert expected_icon in home_page.get_price()
 
-
+@pytest.mark.nondestructive
 @pytest.mark.parametrize(
     "currency, expected_icon", [("EURO", "€"), ("POUND", "£"), ("USD", "$")]
 )
