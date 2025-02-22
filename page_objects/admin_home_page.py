@@ -6,8 +6,8 @@ class AdminHomePage(BasePage):
     PATH = ''
 
     def user_profile_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '.dropdown-toggle > [alt="John Doe"]')
+        self.driver.find_element(By.CSS_SELECTOR, '#nav-profile')
         return True
 
     def click_logout_button(self):
-        self.driver.find_element(By.CSS_SELECTOR, '[class="nav navbar-nav navbar-right"] > li:nth-child(2)').click()
+        self.driver.find_element(By.CSS_SELECTOR, '#nav-logout').click()

@@ -5,7 +5,7 @@ from page_objects.login_admin_page import LoginAdminPage
 def test_delete_product(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
 
-    login_admin_page.open(base_url, '/admin')
+    login_admin_page.open(base_url, '/administration')
     login_admin_page.login_with_admin_creads(login='user', password='bitnami')
 
     admin_page = AdminPage(driver)

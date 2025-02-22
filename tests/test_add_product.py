@@ -7,7 +7,7 @@ from page_objects.login_admin_page import LoginAdminPage
 def test_add_product(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
 
-    login_admin_page.open(base_url, '/admin')
+    login_admin_page.open(base_url, '/administration')
     login_admin_page.login_with_admin_creads(login='user', password='bitnami')
 
     admin_page = AdminPage(driver)
@@ -17,7 +17,7 @@ def test_add_product(driver, base_url):
 
     admin_page.open_products_list()
     admin_page.open_add_product_form()
-    admin_page.fill_required_fields_for_new_product()
+    admin_page.fill_required_fields_for_new_product(product_name, meta_tag, model, seo)
     admin_page.click_save_button()
     product_nubmer_after_test = admin_page.number_of_product()
     product_name_result, model_result = admin_page.get_attributes_new_product()

@@ -6,8 +6,8 @@ class AccountSuccessPage(BasePage):
     PATH = ''
 
     def success_header_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '.col-sm-9 > h1')
+        self.driver.find_element(By.CSS_SELECTOR, '#content > h1')
         return True
 
     def get_header_text(self):
-        return self.driver.find_element(By.CSS_SELECTOR, '.col-sm-9 > h1').text
+        return self.driver.find_element(By.CSS_SELECTOR, '#content > h1').text
