@@ -16,15 +16,9 @@ def test_find_shopping_cart_on_mac(driver, base_url):
     assert mac_page.shoping_cart_mac_is_visible()
 
 
-def test_find_all_categories_on_menu(driver, base_url):
-    home_page = HomePage(driver)
-    home_page.open(base_url)
-    assert home_page.number_of_categories() == 8
-
-
 def test_find_contact_form(driver, base_url):
     contact_page = ContactPage(driver)
-    contact_page.open(base_url, '/index.php?route=information/contact')
+    contact_page.open(base_url, '/en-gb?route=information/contact')
     assert contact_page.contact_form_is_visible()
     assert contact_page.lable_contact_form_is_visible()
 

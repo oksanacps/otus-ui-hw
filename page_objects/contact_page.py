@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 
 class ContactPage(BasePage):
-    PATH = '/index.php?route=information/contact'
+    PATH = '/en-gb?route=information/contact'
 
     def contact_form_is_visible(self):
         self.driver.find_element(By.CSS_SELECTOR, 'fieldset')

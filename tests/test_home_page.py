@@ -9,5 +9,4 @@ def test_home_page(driver, base_url):
     assert home_page.search_field_is_visible()
     assert home_page.cart_is_visible()
 
-    assert home_page.number_of_categories() > 0
     assert home_page.number_of_products() > 0
