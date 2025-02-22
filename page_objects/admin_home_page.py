@@ -3,11 +3,11 @@ from selenium.webdriver.common.by import By
 
 
 class AdminHomePage(BasePage):
-    PATH = ''
+    PATH = ""
 
     def user_profile_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, '#nav-profile')
+        self.driver.find_element(By.CSS_SELECTOR, "#nav-profile")
         return True
 
     def click_logout_button(self):
-        self.driver.find_element(By.CSS_SELECTOR, '#nav-logout').click()
+        self.driver.find_element(By.CSS_SELECTOR, "#nav-logout").click()

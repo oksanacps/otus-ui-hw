@@ -14,12 +14,9 @@ def pytest_addoption(parser):
         "--browser",
         default="chrome",
         help="Options: firefox, chrome, opera. Default: chrome",
-        choices=("chrome", "firefox", "opera")
+        choices=("chrome", "firefox", "opera"),
     )
-    parser.addoption(
-        "--base_url",
-        help="base_url"
-    )
+    parser.addoption("--base_url", help="base_url")
 
 
 @pytest.fixture()
@@ -54,19 +51,25 @@ def clear_cart(driver, base_url):
     product_number = home_page.number_of_products_in_cart()
     if product_number > 0:
         for product in range(product_number):
-            driver.find_element(By.XPATH, '//*[@id="header-cart"]/div/ul/li/table/tbody/tr/td[5]/form/button')
+            driver.find_element(
+                By.XPATH,
+                '//*[@id="header-cart"]/div/ul/li/table/tbody/tr/td[5]/form/button',
+            )
 
     yield
 
     product_number = home_page.number_of_products_in_cart()
     if product_number > 0:
         for product in range(product_number):
-            driver.find_element(By.XPATH, '//*[@id="header-cart"]/div/ul/li/table/tbody/tr/td[5]/form/button')
+            driver.find_element(
+                By.XPATH,
+                '//*[@id="header-cart"]/div/ul/li/table/tbody/tr/td[5]/form/button',
+            )
 
 
 @pytest.fixture()
 def random_email():
-    random_email = ''
+    random_email = ""
     for x in range(10):
-        random_email += ''.join(random.choice(string.ascii_lowercase))
+        random_email += "".join(random.choice(string.ascii_lowercase))
     yield random_email + "@gmail.com"
