@@ -1,4 +1,5 @@
 import pytest
+import allure
 
 from page_objects.home_page import HomePage
 from page_objects.catalog_page import CatalogPage
@@ -7,6 +8,7 @@ from page_objects.catalog_page import CatalogPage
 @pytest.mark.parametrize(
     "currency, expected_icon", [("EURO", "€"), ("POUND", "£"), ("USD", "$")]
 )
+@allure.title("Проверка выбора валюты на главной странице")
 def test_currency_home_page(driver, base_url, currency, expected_icon):
     home_page = HomePage(driver)
     home_page.open(base_url)
@@ -20,6 +22,7 @@ def test_currency_home_page(driver, base_url, currency, expected_icon):
 @pytest.mark.parametrize(
     "currency, expected_icon", [("EURO", "€"), ("POUND", "£"), ("USD", "$")]
 )
+@allure.title("Проверка выбора валюты на странице с каталогом товаров")
 def test_currency_catalog_page(driver, base_url, currency, expected_icon):
     catalog_page = CatalogPage(driver)
     home_page = HomePage(driver)

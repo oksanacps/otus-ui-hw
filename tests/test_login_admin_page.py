@@ -1,4 +1,5 @@
 import pytest
+import allure
 
 from page_objects.login_admin_page import LoginAdminPage
 from page_objects.admin_home_page import AdminHomePage
@@ -6,6 +7,7 @@ from page_objects.admin_home_page import AdminHomePage
 
 @pytest.mark.nondestructive
 @pytest.mark.test
+@allure.title("")
 def test_login_form(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
     login_admin_page.open(base_url, "/administration")
@@ -19,6 +21,7 @@ def test_login_form(driver, base_url):
 
 
 @pytest.mark.nondestructive
+@allure.title("Проверка входа \ выхода")
 def test_login_logout(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
     admin_home_page = AdminHomePage(driver)
