@@ -1,6 +1,11 @@
+import pytest
+import allure
+
 from page_objects.product_card_page import ProductCardPage
 
 
+@pytest.mark.nondestructive
+@allure.title("Проверка карточки товара mac")
 def test_desctop_mac_card(driver, base_url):
     product_card_page = ProductCardPage(driver)
     product_card_page.open(base_url, "/desktops/mac/imac")

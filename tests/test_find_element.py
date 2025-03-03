@@ -1,21 +1,30 @@
+import pytest
+import allure
+
 from page_objects.home_page import HomePage
 from page_objects.mac_page import MacPage
 from page_objects.search_page import SearchPage
 from page_objects.contact_page import ContactPage
 
 
+@pytest.mark.nondestructive
+@allure.title("Проверка поля поиска товара")
 def test_find_search_field(driver, base_url):
     home_page = HomePage(driver)
     home_page.open(base_url)
     assert home_page.search_field_is_visible()
 
 
+@pytest.mark.nondestructive
+@allure.title("Проверка наличия кнопки добавления в карзину на карточке товара")
 def test_find_shopping_cart_on_mac(driver, base_url):
     mac_page = MacPage(driver)
     mac_page.open(base_url, "/desktops/mac")
     assert mac_page.shoping_cart_mac_is_visible()
 
 
+@pytest.mark.nondestructive
+@allure.title("Проверка формы с контактными данными")
 def test_find_contact_form(driver, base_url):
     contact_page = ContactPage(driver)
     contact_page.open(base_url, "/en-gb?route=information/contact")
@@ -23,6 +32,8 @@ def test_find_contact_form(driver, base_url):
     assert contact_page.lable_contact_form_is_visible()
 
 
+@pytest.mark.nondestructive
+@allure.title("Проверка кнопки подтверждения поиска")
 def test_find_button_search(driver, base_url):
     search_page = SearchPage(driver)
     search_page.open(base_url, "/index.php?route=product/search")
