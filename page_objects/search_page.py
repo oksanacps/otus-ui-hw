@@ -9,5 +9,4 @@ class SearchPage(BasePage):
 
     @allure.step("Проверяю, что кнопка поиска отображается")
     def button_search_is_visible(self):
-        self.driver.find_element(By.ID, "button-search")
-        return True
+        return self.is_visible((By.ID, "button-search"))

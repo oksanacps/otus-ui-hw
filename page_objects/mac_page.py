@@ -9,5 +9,4 @@ class MacPage(BasePage):
 
     @allure.step("Проверяю, что карточка с товаром mac отображается")
     def shoping_cart_mac_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, ".button-group > button:nth-child(1)")
-        return True
+        return self.is_visible((By.CSS_SELECTOR, ".button-group > button:nth-child(1)"))

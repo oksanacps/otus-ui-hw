@@ -3,6 +3,7 @@ import allure
 
 from page_objects.catalog_page import CatalogPage
 
+
 @pytest.mark.nondestructive
 @allure.title("Проверка каталога с товарами")
 def test_catalog_page(driver, base_url):

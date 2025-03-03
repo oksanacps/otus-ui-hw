@@ -5,6 +5,7 @@ import allure
 from page_objects.admin_page import AdminPage
 from page_objects.login_admin_page import LoginAdminPage
 
+
 @pytest.mark.nondestructive
 @allure.title("Проверка добавления товара в БД")
 def test_add_product(driver, base_url):

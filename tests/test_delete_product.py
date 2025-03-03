@@ -4,6 +4,7 @@ import allure
 from page_objects.admin_page import AdminPage
 from page_objects.login_admin_page import LoginAdminPage
 
+
 @pytest.mark.nondestructive
 @allure.title("Проверка удаления товара из БД")
 def test_delete_product(driver, base_url):

@@ -9,9 +9,8 @@ class AdminHomePage(BasePage):
 
     @allure.step("Проверяю, что пользовательский профиль отображается")
     def user_profile_is_visible(self):
-        self.driver.find_element(By.CSS_SELECTOR, "#nav-profile")
-        return True
+        return self.is_visible((By.CSS_SELECTOR, "#nav-profile"))
 
     @allure.step("Нажимаю logout кнопку")
     def click_logout_button(self):
-        self.driver.find_element(By.CSS_SELECTOR, "#nav-logout").click()
+        self.click((By.CSS_SELECTOR, "#nav-logout"))

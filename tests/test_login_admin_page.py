@@ -6,7 +6,6 @@ from page_objects.admin_home_page import AdminHomePage
 
 
 @pytest.mark.nondestructive
-@pytest.mark.test
 @allure.title("")
 def test_login_form(driver, base_url):
     login_admin_page = LoginAdminPage(driver)
