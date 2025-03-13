@@ -1,6 +1,11 @@
+import pytest
+import allure
+
 from page_objects.catalog_page import CatalogPage
 
 
+@pytest.mark.nondestructive
+@allure.title("Проверка каталога с товарами")
 def test_catalog_page(driver, base_url):
     catalog_page = CatalogPage(driver)
     catalog_page.open(base_url, catalog_page.PATH)

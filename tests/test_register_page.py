@@ -1,7 +1,12 @@
+import pytest
+import allure
+
 from page_objects.register_page import RegisterPage
 from page_objects.account_success_page import AccountSuccessPage
 
 
+@pytest.mark.nondestructive
+@allure.title("Проверка формы регистрации")
 def test_register_form(driver, base_url):
     register_page = RegisterPage(driver)
     register_page.open(base_url, "/en-gb?route=account/register")
@@ -15,6 +20,8 @@ def test_register_form(driver, base_url):
     assert register_page.submit_button_is_visible()
 
 
+@pytest.mark.nondestructive
+@allure.title("Проверка регистрации нового клиента")
 def test_register_new_client(driver, base_url, random_email):
     register_page = RegisterPage(driver)
     account_success_page = AccountSuccessPage(driver)
