@@ -3,8 +3,9 @@ import string
 import pytest
 import allure
 
-from selenium import webdriver as webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options as FireFoxOptions
 from selenium.webdriver.common.by import By
 
 from page_objects.home_page import HomePage
@@ -18,6 +19,8 @@ def pytest_addoption(parser):
         choices=("chrome", "firefox", "opera"),
     )
     parser.addoption("--base_url", help="base_url")
+    parser.addoption("--exe_host", help="executor_host", default="192.168.0.111")
+    parser.addoption("--vnc", help="vnc", action='store_true')
 
 
 @pytest.fixture(scope="session")
@@ -27,20 +30,27 @@ def base_url(request):
 
 @pytest.fixture()
 def driver(request):
-    global browser
     browser_name = request.config.getoption("--browser")
-    service = ChromeService()
+    exe_host = request.config.getoption("--exe_host")
+    vnc = request.config.getoption("--vnc")
 
     if browser_name == "chrome":
-        browser = webdriver.Chrome(service=service)
+        options = ChromeOptions()
     elif browser_name == "firefox":
-        browser = webdriver.Firefox(service=service)
-    elif browser_name == "opera":
-        browser = webdriver.Chrome(service=service)
+        options = FireFoxOptions()
+
+    selenoid_options = {
+        "enableVNC": vnc,
+        "browserName": browser_name,
+    }
+
+    options.set_capability("selenoid:options", selenoid_options)
+    
+    browser = webdriver.Remote(command_executor=f"http://{exe_host}:4444/wd/hub", options=options)
 
     yield browser
 
-    browser.close()
+    browser.quit()
 
 
 @pytest.fixture()
