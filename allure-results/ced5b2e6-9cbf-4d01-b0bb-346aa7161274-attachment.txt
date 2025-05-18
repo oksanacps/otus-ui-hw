@@ -1,0 +1,2 @@
+INFO     MacPage:base_page.py:27 Open http://192.168.0.226:8081//desktops/mac
+INFO     MacPage:base_page.py:47 Check that ('css selector', '.button-group > button:nth-child(1)') is visible

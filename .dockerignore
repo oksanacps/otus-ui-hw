@@ -1,0 +1,25 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+
+# Тестовые результаты и логи
+allure-results/
+logs/
+.pytest_cache/
+
+# Другие
+*.log
+.DS_Store 

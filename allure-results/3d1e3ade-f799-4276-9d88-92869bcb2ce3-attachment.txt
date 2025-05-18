@@ -1,0 +1,2 @@
+INFO     SearchPage:base_page.py:27 Open http://192.168.0.226:8081//index.php?route=product/search
+INFO     SearchPage:base_page.py:47 Check that ('id', 'button-search') is visible
