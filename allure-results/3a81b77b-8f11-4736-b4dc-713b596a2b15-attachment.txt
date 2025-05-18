@@ -1,0 +1,6 @@
+INFO     LoginAdminPage:base_page.py:27 Open http://192.168.0.226:8081//administration
+INFO     LoginAdminPage:base_page.py:36 Send keys to ('css selector', '#input-username')
+INFO     LoginAdminPage:base_page.py:36 Send keys to ('css selector', '#input-password')
+INFO     LoginAdminPage:base_page.py:31 Click ('css selector', '#form-login > div.text-end > button')
+INFO     AdminPage:base_page.py:31 Click ('css selector', '[class="parent collapsed"]', 'parent collapsed')
+INFO     AdminPage:base_page.py:31 Click ('css selector', '[aria-label="Add New"]', 'add_product_form')

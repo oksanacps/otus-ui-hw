@@ -1,0 +1,7 @@
+INFO     LoginAdminPage:base_page.py:27 Open http://192.168.0.226:8081//administration
+INFO     LoginAdminPage:base_page.py:47 Check that ('css selector', '[title="OpenCart"]') is visible
+INFO     LoginAdminPage:base_page.py:47 Check that ('css selector', '.mb-3 [for="input-username"]') is visible
+INFO     LoginAdminPage:base_page.py:47 Check that ('css selector', '#input-username') is visible
+INFO     LoginAdminPage:base_page.py:47 Check that ('css selector', '.mb-3 [for="input-password"]') is visible
+INFO     LoginAdminPage:base_page.py:47 Check that ('css selector', '#input-password') is visible
+INFO     LoginAdminPage:base_page.py:47 Check that ('css selector', '#form-login > div.text-end > button') is visible

@@ -1,0 +1,8 @@
+INFO     RegisterPage:base_page.py:27 Open http://192.168.0.226:8081//en-gb?route=account/register
+INFO     RegisterPage:base_page.py:36 Send keys to ('id', 'input-firstname')
+INFO     RegisterPage:base_page.py:36 Send keys to ('id', 'input-lastname')
+INFO     RegisterPage:base_page.py:36 Send keys to ('id', 'input-email')
+INFO     RegisterPage:base_page.py:36 Send keys to ('id', 'input-password')
+INFO     RegisterPage:base_page.py:31 Click ('css selector', '#form-register > div > div > input')
+INFO     RegisterPage:base_page.py:31 Click ('css selector', '#form-register > div > button')
+INFO     AccountSuccessPage:base_page.py:47 Check that ('css selector', '#content > h1') is visible
