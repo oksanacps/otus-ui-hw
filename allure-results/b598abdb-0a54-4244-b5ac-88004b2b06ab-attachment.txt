@@ -1,3 +1,0 @@
-INFO     ContactPage:base_page.py:27 Open http://192.168.0.226:8081//en-gb?route=information/contact
-INFO     ContactPage:base_page.py:47 Check that ('css selector', 'fieldset') is visible
-INFO     ContactPage:base_page.py:47 Check that ('css selector', 'legend') is visible
