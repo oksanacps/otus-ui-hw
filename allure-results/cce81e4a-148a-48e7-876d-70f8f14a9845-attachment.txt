@@ -1,3 +1,0 @@
-INFO     CatalogPage:base_page.py:27 Open http://192.168.0.226:8081//en-gb/catalog/component/monitor
-INFO     CatalogPage:base_page.py:47 Check that ('css selector', '.breadcrumb') is visible
-INFO     CatalogPage:base_page.py:47 Check that ('css selector', '#content > h2') is visible

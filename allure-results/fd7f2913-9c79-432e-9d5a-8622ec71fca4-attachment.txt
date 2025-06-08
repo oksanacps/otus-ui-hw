@@ -1,8 +1,0 @@
-INFO     RegisterPage:base_page.py:27 Open http://192.168.0.226:8081//en-gb?route=account/register
-INFO     RegisterPage:base_page.py:47 Check that ('css selector', '#content > h1') is visible
-INFO     RegisterPage:base_page.py:47 Check that ('id', 'input-firstname') is visible
-INFO     RegisterPage:base_page.py:47 Check that ('id', 'input-lastname') is visible
-INFO     RegisterPage:base_page.py:47 Check that ('id', 'input-email') is visible
-INFO     RegisterPage:base_page.py:47 Check that ('id', 'input-password') is visible
-INFO     RegisterPage:base_page.py:47 Check that ('css selector', '#form-register > div > div > input') is visible
-INFO     RegisterPage:base_page.py:47 Check that ('css selector', '#form-register > div > button') is visible
