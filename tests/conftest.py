@@ -21,6 +21,7 @@ def pytest_addoption(parser):
     parser.addoption("--base_url", help="base_url")
     parser.addoption("--exe_host", help="executor_host", default="192.168.0.104")
     parser.addoption("--vnc", help="vnc", action='store_true')
+    parser.addoption("--browser_version", help="browser_version", default="128.0")
 
 
 @pytest.fixture(scope="session")
@@ -33,6 +34,7 @@ def driver(request):
     browser_name = request.config.getoption("--browser")
     exe_host = request.config.getoption("--exe_host")
     vnc = request.config.getoption("--vnc")
+    browser_version = request.config.getoption("--browser_version")
 
     if browser_name == "chrome":
         options = ChromeOptions()
@@ -42,6 +44,7 @@ def driver(request):
     selenoid_options = {
         "enableVNC": vnc,
         "browserName": browser_name,
+        "browser_version": browser_version,
     }
 
     options.set_capability("selenoid:options", selenoid_options)
