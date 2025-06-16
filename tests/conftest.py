@@ -19,7 +19,7 @@ def pytest_addoption(parser):
         choices=("chrome", "firefox", "opera"),
     )
     parser.addoption("--base_url", help="base_url")
-    parser.addoption("--exe_host", help="executor_host", default="192.168.0.226")
+    parser.addoption("--exe_host", help="executor_host", default="192.168.0.104")
     parser.addoption("--vnc", help="vnc", action='store_true')
 
 
