@@ -8,8 +8,8 @@ pipeline {
 
     environment {
         BROWSER = 'chrome'
-        OPENCART_PORT = '8080'
-        PHPADMIN_PORT = '8081'
+        OPENCART_PORT = '8081'
+        PHPADMIN_PORT = '8088'
         LOCAL_IP = 'host.docker.internal'
     }
 
